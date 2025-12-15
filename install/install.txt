@@ -1,0 +1,12 @@
+sway swaybg swayidle swaylock wofi
+xdg-desktop-portal-wlr
+pavucontrol
+i3status
+bluez blueman
+network-manager-gnome
+brightnessctl
+slurp
+wl-clipboard
+
+zathura
+

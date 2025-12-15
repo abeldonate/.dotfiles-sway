@@ -1,0 +1,56 @@
+general {
+        output_format = "i3bar"
+        colors = true
+        interval = 5
+}
+
+# Order is read from left to right on the status bar's right side.
+# Placing 'tztime' before 'battery' effectively puts the time "in the middle"
+# and the battery on the far right.
+order += "tztime local"
+order += "battery all"
+order += "volume master"
+#  order += "wireless _first_"
+
+# --- Time Module (Middle Placement) ---
+tztime local {
+        # Format: Day/Month/Year Hour:Minute (e.g., 12/12/2025 03:00)
+        format = "📅 %d/%m/%Y %H:%M"
+}
+
+# --- Battery Module (Right Placement) ---
+battery all {
+        # Use battery icon 🔋 and percentage without decimals.
+        # The %percentage variable shows only the integer value by default.
+        # Note: The battery icon requires a font that supports Unicode/Emojis.
+	integer_battery_capacity = true
+
+        format_down = "No battery"
+        format= "🔋 %percentage %status"
+        low_threshold = 10
+        threshold_type = percentage
+        
+        # Define status text for charging/discharging
+        status_chr = "⚡ "
+        status_bat = ""
+        status_full = ""
+}
+
+# --- Volume Module ---
+volume master {
+    # Use a Unicode speaker icon and display the volume percentage.
+    format = "🔊 %volume"
+    # Display this when volume is muted.
+    format_muted = "🔇 MUTE"
+    # Uses the system's default audio device.
+    device = "default" 
+}
+
+# --- Wi-Fi Module (Far Left) ---
+wireless _first_ {
+        # Change 'wlan0' to your network interface name if needed. 
+        # '_first_' usually works by checking the first available Wi-Fi interface.
+        # Format shows the Wi-Fi icon 📶, SSID, and link quality.
+        format_up = "📶 %essid (%quality)"
+        format_down = "❌ WiFi"
+}

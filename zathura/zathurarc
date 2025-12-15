@@ -1,0 +1,89 @@
+#set default-bg                  "#828385"
+#set default-fg                  "#000000"
+
+#set statusbar-fg                "#bdae93"
+#set statusbar-bg                "#504945"
+
+#set inputbar-bg                 "#282828"
+#set inputbar-fg                 "#fbf1c7"
+
+#set notification-bg             "#282828"
+#set notification-fg             "#fbf1c7"
+
+#set notification-error-bg       "#282828"
+#set notification-error-fg       "#fb4934"
+
+#set notification-warning-bg     "#282828"
+#set notification-warning-fg     "#fb4934"
+
+#set highlight-color             "#fabd2f"
+#set highlight-active-color      "#83a598"
+
+#set completion-bg               "#3c3836"
+#set completion-fg               "#83a598"
+
+#set completion-highlight-fg     "#fbf1c7"
+#set completion-highlight-bg     "#83a598"
+
+#set recolor-lightcolor          "#fbf1c7"
+#set recolor-darkcolor           "#1d2021"
+
+#set recolor-lightcolor          "#f9fae7" # base02
+#set recolor-darkcolor           "#93a1a1" # base1 
+
+#Mappings
+map w adjust_window width
+map e adjust_window best-fit
+map i navigate_index
+map s exec "python -m speedread"
+map v exec "kitty bash -c \"nvim $FILE\""
+# Remappings for navigation keys
+map <C-n> navigate next
+
+# ~/.config/zathura/zathurarc
+
+
+# GENERAL SETTINGS
+# ----------------
+set window-title-basename true
+set statusbar-home-tilde  true
+set recolor               false
+set selection-clipboard   clipboard
+
+
+# LAYOUT SETTINGS
+# ---------------
+set statusbar-h-padding 0
+set statusbar-v-padding 0
+
+
+# NORD THEME
+# ----------
+set default-bg              "#2e3440" # nord0
+set default-fg              "#d8dee9" # nord4
+set statusbar-bg            "#2e3440" # nord0
+set statusbar-fg            "#d8dee9" # nord4
+set inputbar-bg             "#2e3440" # nord0
+set inputbar-fg             "#a3be8c" # nord14
+set completion-bg           "#2e3440" # nord0
+set completion-fg           "#d8dee9" # nord4
+set completion-group-bg     "#2e3440" # nord0
+set completion-group-fg     "#d8dee9" # nord4
+set completion-highlight-bg "#434c5e" # nord2
+set completion-highlight-fg "#d8dee9" # nord4
+set notification-bg         "#3b4252" # nord2
+set notification-fg         "#eceff4" # nord6
+set notification-error-bg   "#bf616a" # nord11
+set notification-error-fg   "#eceff4" # nord6
+set notification-warning-bg "#ebcb8b" # nord13
+set notification-warning-fg "#2e3440" # nord0
+set highlight-color         "#5e81ac" # nord10
+set highlight-active-color  "#88c0d0" # nord8
+set index-bg                "#2e3440" # nord0
+set index-fg                "#d8dee9" # nord4
+set index-active-bg         "#434c5e" # nord2
+set index-active-fg         "#d8dee9" # nord4
+set recolor-darkcolor       "#d8dee9" # nord4
+set recolor-lightcolor      "#2e3440" # nord0
+set render-loading-bg       "#2e3440" # nord0
+set render-loading-fg       "#d8dee9" # nord4
