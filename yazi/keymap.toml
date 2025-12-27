@@ -1,0 +1,14 @@
+[[mgr.prepend_keymap]]
+on = ["i"]
+run = "cd ~/Documents/Uni/Info/Q1.1"
+desc = "Go to Info"
+
+[[mgr.prepend_keymap]]
+on = ["m"]
+run = "cd ~/Documents/Uni/Maths\\ Master/S1"
+desc = "Go to Math master"
+
+[[mgr.prepend_keymap]]
+on = ["n"]
+run = "cd ~/Documents/Uni/References"
+desc = "Go to References"

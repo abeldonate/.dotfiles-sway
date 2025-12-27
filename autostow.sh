@@ -17,6 +17,8 @@ CONFIG_INDEP_PKG=(
     zathura
     sway
     i3status
+    yazi
+    kitty
 )
 
 	  X11_PKG=(
