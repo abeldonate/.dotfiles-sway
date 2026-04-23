@@ -5,7 +5,7 @@ desc = "Go to Info"
 
 [[mgr.prepend_keymap]]
 on = ["m"]
-run = "cd ~/Documents/Uni/Maths\\ Master/S1"
+	run = "cd ~/Documents/Uni/Maths\\ Master/S2"
 desc = "Go to Math master"
 
 [[mgr.prepend_keymap]]

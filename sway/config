@@ -29,43 +29,22 @@ include /etc/sway/config-vars.d/*
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 output * bg ~/.config/sway/nord2.png fill 
-#
-# Example configuration:
-#
-# output eDP-1 resolution 2880x1800 position 0,0
-# output HDMI-A-1 resolution 1920x1080 position 2880,0
+
 output eDP1 scale 2
 output eDP-1 pos 0 0 res 2880x1800
 output HDMI-A-1 pos 1440 0 res 1920x1080
-#
-# You can get the names of your outputs by running: swaymsg -t get_outputs
-
-### Idle configuration
-#
-# Example configuration:
-#
-### Idle configuration
-# This will lock your screen after 300 seconds and turn off displays after 600 seconds
-#exec swayidle -w \
-#         timeout 300 'swaylock -f -c 000000' \
-#         timeout 600 'swaymsg "output * power off"' \
-#         resume 'swaymsg "output * power on"' \
-#         before-sleep 'swaylock -f -c 000000'
 
 # Lock screen AND turn off display immediately
 bindsym $mod+x exec swaylock -f -c 000000 
 # && sleep 1 && swaymsg "output * power off"
 #
-# This will lock your screen after 300 seconds of inactivity, then turn off
-# your displays after another 300 seconds, and turn your screens back on when
-# resumed. It will also lock your screen before your computer goes to sleep.
 
 ### Input configuration
 input "*" {
     # Set the two layouts (us for English, es for Spanish)
-    xkb_layout "us,es"
+    xkb_layout "es,us"
     # Combine Caps Lock swap (caps:escape) and layout switching (grp:toggle) into one line
-    xkb_options "caps:escape,grp:ctrl_space_toggle,lv3:ralt_switch"
+    xkb_options "caps:swapescape,grp:ctrl_space_toggle,lv3:ralt_switch"
 }
 #
 # Example configuration:
@@ -76,15 +55,19 @@ input "*" {
        natural_scroll enabled
        middle_emulation enabled
    }
-#
-# You can get the names of your inputs by running: swaymsg -t get_inputs
-# Read `man 5 sway-input` for more information about this section.
 
 font pango: Cantarell 10
 
 for_window [class=".*"] border pixel 2
 gaps inner 2
 gaps outer 3
+
+# target           border  bg      text    indicator child_border
+# client.focused          #b48ead #880000 #ffffff #2e9ef4   #880000
+# client.focused_inactive #b48ead #333333 #ffffff #484e50   #333333
+# client.unfocused        #b48ead #333333 #888888 #292d2e   #333333
+# client.urgent           #b48ead #900000 #ffffff #900000   #900000
+
 
 
 ### Key bindings
@@ -102,6 +85,7 @@ gaps outer 3
 
     # Start the browser
     bindsym $mod+b exec $browser
+    bindsym $mod+n exec $browser --incognito
 
     # Kill focused window
     bindsym $mod+q kill
@@ -135,10 +119,10 @@ bindsym $mod+f exec $term -e yazi
     bindsym $mod+$up focus up
     bindsym $mod+$right focus right
     # Or use $mod+[up|down|left|right]
-    bindsym $mod+Left focus left
-    bindsym $mod+Down focus down
-    bindsym $mod+Up focus up
-    bindsym $mod+Right focus right
+    bindsym $mod+Left workspace prev_on_output
+    bindsym $mod+Right workspace next_on_output
+    # bindsym $mod+Up focus up
+    # bindsym $mod+Right focus right
 
     # Move the focused window with the same, but add Shift
     bindsym $mod+Shift+$left move left
@@ -172,6 +156,7 @@ workspace w output eDP-1
 workspace e output eDP-1
 workspace r output eDP-1
 workspace t output eDP-1
+workspace y output eDP-1
 
 
     # Switch to workspace
@@ -189,6 +174,7 @@ workspace t output eDP-1
     bindsym $mod+e workspace e
     bindsym $mod+r workspace r
     bindsym $mod+t workspace t
+    bindsym $mod+y workspace y
     # Move focused container to workspace
     bindsym $mod+Shift+1 move container to workspace number 1, workspace number 1
     bindsym $mod+Shift+2 move container to workspace number 2, workspace number 2
@@ -204,18 +190,20 @@ workspace t output eDP-1
     bindsym $mod+Shift+e move container to workspace e, workspace e
     bindsym $mod+Shift+r move container to workspace r, workspace r
     bindsym $mod+Shift+t move container to workspace t, workspace t
+    bindsym $mod+Shift+y move container to workspace y, workspace y
 #
 # Layout stuff:
 
 #
-    bindsym $mod+n splitv
-    bindsym $mod+m splith
+    bindsym $mod+Shift+n splitv
+    bindsym $mod+Shift+m splith
 
     # Switch the current container between different layout styles
     bindsym $mod+a layout toggle split
     bindsym $mod+s layout tabbed
     bindsym $mod+d fullscreen
     bindsym $mod+Shift+space floating toggle
+
 
     # bindsym $mod+s layout stacking
     # bindsym $mod+space focus mode_toggle
@@ -268,20 +256,24 @@ bindsym $mod+z mode "resize"
 # When Zathura opens, move it into a tabbed layout with the current terminal
 for_window [app_id="org.pwmt.zathura"] move container to mark terminal_parent, layout tabbed
 
+for_window [app_id="wifi-manager"] floating enable, move position center, resize set 600 500
+
 #
 # Status Bar:
 #
+
 bar {
     position top
+    swaybar_command waybar
 
     # The new status command now calls the i3status program
-    status_command i3status 
+    # status_command i3status 
 
-    colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
-    }
+    #colors {
+    #    statusline #ffffff
+    #    background #323232
+    #    inactive_workspace #32323200 #32323200 #5c5c5c
+    #}
 }
 
 include /etc/sway/config.d/*

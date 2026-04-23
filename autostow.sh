@@ -19,6 +19,7 @@ CONFIG_INDEP_PKG=(
     i3status
     yazi
     kitty
+    waybar
 )
 
 	  X11_PKG=(

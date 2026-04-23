@@ -47,10 +47,9 @@ volume master {
 }
 
 # --- Wi-Fi Module (Far Left) ---
-wireless _first_ {
-        # Change 'wlan0' to your network interface name if needed. 
-        # '_first_' usually works by checking the first available Wi-Fi interface.
-        # Format shows the Wi-Fi icon 📶, SSID, and link quality.
-        format_up = "📶 %essid (%quality)"
-        format_down = "❌ WiFi"
+"custom/wifi": {
+    "format": "",
+    "on-click": "wifi-manager",
+    "tooltip": true,
+    "tooltip-format": "Left-click to manage Wi-Fi"
 }

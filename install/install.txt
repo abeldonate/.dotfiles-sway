@@ -7,6 +7,7 @@ network-manager-gnome
 brightnessctl
 slurp
 wl-clipboard
-
 zathura
-
+ffmpeg 7zip jq poppler-utils fd-find ripgrep fzf zoxide imagemagick
+yazi
+kitty
